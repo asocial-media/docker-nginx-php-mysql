@@ -21,6 +21,7 @@ services:
     volumes:
       - ./public_html:/var/www/html
       - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./config/nginx/cloudflare_ips:/etc/nginx/cloudflare_ips
       - ./config/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
       - ./config/php/php.ini:/etc/php81/conf.d/settings.ini
       - ./config/php/php-fpm.d/www.conf:/etc/php8/php-fpm.d/www.conf
