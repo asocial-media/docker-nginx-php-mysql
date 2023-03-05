@@ -17,7 +17,6 @@ services:
     restart: unless-stopped
     ports:
       - ":80"
-      - ":443"
     volumes:
       - ./public_html:/var/www/html
       - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
@@ -35,6 +34,19 @@ services:
       - ":80"
     environment:
       - PMA_HOST=db
+
+  vsftpd:
+    image: fauria/vsftpd
+    restart: unless-stopped
+    environment:
+      - FTP_USER=${FTP_USERNAME:-ftp_user}
+      - FTP_PASS=${FTP_USERNAME:-X5fY9wd5cFpn56HALziD}
+    ports:
+      - "0.0.0.0::20"
+      - "0.0.0.0::21"
+      - "21100-21110:21100-21110"
+    volumes:
+      - ./public_html:/home/vsftpd
 
 volumes:
   db_data:
