@@ -6,8 +6,8 @@ services:
       - db_data:/var/lib/mysql
     environment:
       - MARIADB_RANDOM_ROOT_PASSWORD=1
-      - MARIADB_USER=${DB_USERNAME:-user}
-      - MARIADB_PASSWORD=${DB_PASSWORD:-K65k2rgWT3vDfh8EAzA8}
+      - MARIADB_USER=${DB_USERNAME:-username}
+      - MARIADB_PASSWORD=${DB_PASSWORD:-changeme}
       - MARIADB_DATABASE=${DB_NAME:-app}
 
   nginx-php-fpm:
