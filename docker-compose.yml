@@ -37,7 +37,7 @@ services:
     # optionally replace username/repo:tag with your name and image details
     image: stilliard/pure-ftpd:latest
     environment:
-      PUBLICHOST: ${PUBLIC_HOST:-"s1.hostn.cloud"}
+      PUBLICHOST: ${PUBLIC_HOST:-"51.68.153.77"}
       FTP_USER_NAME: ${FTP_USERNAME:-ftp_user}
       FTP_USER_PASS: ${FTP_PASSWORD:-X5fY9wd5cFpn56HALziD}
       FTP_USER_HOME: "/var/www/html"
