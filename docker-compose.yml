@@ -33,30 +33,5 @@ services:
     environment:
       - PMA_HOST=db
 
-  ftp:
-    # optionally replace username/repo:tag with your name and image details
-    image: stilliard/pure-ftpd:latest
-    environment:
-      PUBLICHOST: ${PUBLIC_HOST:-"51.68.153.77"}
-      FTP_USER_NAME: ${FTP_USERNAME:-ftp_user}
-      FTP_USER_PASS: ${FTP_PASSWORD:-X5fY9wd5cFpn56HALziD}
-      FTP_USER_HOME: "/var/www/html"
-      #FTP_USER_UID: 33
-      #FTP_USER_GID: 33
-    volumes:
-      - ./public_html:/var/www/html
-      - ./config/ftp:/etc/ssl/private
-    ports:
-      - target: 21
-        published: 21
-        protocol: tcp
-        mode: host
-
-      # Bind each passive ports to the host
-      - target: 30000
-        published: 30000
-        protocol: tcp
-        mode: host
-
 volumes:
   db_data:
