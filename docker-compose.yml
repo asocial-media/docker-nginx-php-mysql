@@ -14,7 +14,7 @@ services:
     image: trafex/php-nginx:${TRAFEX_PHP_NGINX_VERSION:-latest}
     restart: unless-stopped
     ports:
-      - ":80"
+      - ${HTTP_PORT:-}:80
     volumes:
       - ./public_html:/var/www/html
       - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
@@ -29,7 +29,7 @@ services:
     depends_on:
       - db
     ports:
-      - ":80"
+      - ${PHPMYADMIN_PORT:-}:80
     environment:
       - PMA_HOST=db
 
